@@ -5,7 +5,8 @@ class HelloComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 0
+            count: 0,
+            childMsg: "我来自子组件---初始化"
         }
     }
     componentWillMount() {
@@ -35,10 +36,16 @@ class HelloComponent extends React.Component {
         this.setState({ count: newCount });
         this.props.getCount(newCount);
     }
-
+    sendChildState(msg) {
+        this.setState({
+            childMsg:msg
+        })
+        
+        console.log(this.state.childMsg);
+    }
     render() {
         return (
-            <button onClick={this.Increment.bind(this)}> {this.props.buttonName}</button>
+            <button onClick={this.Increment.bind(this)}> {this.props.buttonName},"偷偷摸摸的显示一下:>>>>"+{this.state.childMsg}</button>
         )
     }
 }

@@ -7,7 +7,8 @@ class ParentComponent extends Component {
         super(props);
         this.state = {
             msg:'按钮初始值',
-            count: 0
+            count: 0,
+            childMsg:'我来自父组件'
         }
     }
     componentWillMount() {
@@ -41,10 +42,15 @@ class ParentComponent extends Component {
             count: newCount
         })
     }
+    getChild(){
+        let fatherMsg = this.state.childMsg;
+        this.refs.sendChild.sendChildState(fatherMsg);
+    }
     render() {
         return (<div>
                 <div>{this.state.count}</div>
-                <HelloComponent buttonName={this.state.msg} getCount={this.getCount.bind(this)} />
+                <HelloComponent ref="sendChild" buttonName={this.state.msg} getCount={this.getCount.bind(this)} />
+                <button onClick={this.getChild.bind(this)}>我是来自父组件的按钮</button>
             </div>)
     }
 }
