@@ -6,9 +6,15 @@ class ParentComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            msg:'按钮初始值',
+            msg: '按钮初始值',
             count: 0,
-            childMsg:'我来自父组件'
+            childMsg: '我来自父组件',
+            data: [
+                { tagName: "第一个标题头", conent: "" },
+                { tagName: "第二个标题头", conent: "" },
+                { tagName: "第三个标题头", conent: "" },
+                { tagName: "第四个标题头", conent: "" }
+            ]
         }
     }
     componentWillMount() {
@@ -42,16 +48,21 @@ class ParentComponent extends Component {
             count: newCount
         })
     }
-    getChild(){
+    getChild() {
         let fatherMsg = this.state.childMsg;
         this.refs.sendChild.sendChildState(fatherMsg);
     }
     render() {
         return (<div>
-                <div>{this.state.count}</div>
-                <HelloComponent ref="sendChild" buttonName={this.state.msg} getCount={this.getCount.bind(this)} />
-                <button onClick={this.getChild.bind(this)}>我是来自父组件的按钮</button>
-            </div>)
+            <div>{this.state.count}</div>
+            <HelloComponent ref="sendChild" buttonName={this.state.msg} getCount={this.getCount.bind(this)} />
+            <button onClick={this.getChild.bind(this)}>我是来自父组件的按钮</button>
+            <ul>
+                {this.state.data.map((item)=>{
+                    return (<li>{item.tagName}</li>)
+                })}
+            </ul>
+        </div>)
     }
 }
 export default ParentComponent;
