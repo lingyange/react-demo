@@ -45,7 +45,7 @@ class HelloComponent extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.Increment.bind(this)}> {this.props.buttonName},"偷偷摸摸的显示一下:>>>>"+{this.state.childMsg}</button>
+            <button onClick={this.Increment.bind(this)}> {this.props.buttonName},"显示一下:>>>>"+{this.state.childMsg}</button>
         )
     }
 }
