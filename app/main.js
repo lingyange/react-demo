@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import { createStore } from 'redux';
 import ParentComponent from './components/ParentComponent.jsx';
 import Counter from './components/Counter.jsx';
+import TestState from './components/TestState.jsx';
 import counter from './reducers'
 
 ReactDom.render(
@@ -10,6 +11,10 @@ ReactDom.render(
     document.getElementById('content')
 );
 
+ReactDom.render(
+    <TestState />,
+    document.getElementById('test')
+)
 const store = createStore(counter)
 
 const render = () => {
