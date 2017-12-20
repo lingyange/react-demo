@@ -4,7 +4,9 @@
   "description": "react demo",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npm run dev",
+    "server":"node server.js",
+    "dev":"node_modules/.bin/webpack-dev-server --port 8850 --open"
   },
   "keywords": [
     "demo"

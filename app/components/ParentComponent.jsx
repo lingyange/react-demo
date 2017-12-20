@@ -20,7 +20,7 @@ class ParentComponent extends Component {
                     tagName: "第三个标题头",
                     index: "--3"
                 }, {
-                    tagName: "第四个标题头哈哈",
+                    tagName: "第四个标题头",
                     index: "--4"
                 }
             ]
@@ -73,7 +73,7 @@ class ParentComponent extends Component {
                 <button
                     onClick={this
                     .getChild
-                    .bind(this)}>我是来自父组件按钮~~~</button>
+                    .bind(this)}>我是来自父组件按钮@@@</button>
                 <ul>
                     {this
                         .state
