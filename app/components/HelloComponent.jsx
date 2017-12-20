@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 //子组件
 class HelloComponent extends React.Component {
@@ -20,7 +21,7 @@ class HelloComponent extends React.Component {
     }
     shouldComponentUpdate(nextProps, nextState) {
         console.log(nextProps + "<------Component Update------->" + nextState);
-        return true;
+        return false;
     }
     componentWillUpdate() {
         console.log("<------Will Update------->");
@@ -45,8 +46,11 @@ class HelloComponent extends React.Component {
     }
     render() {
         return (
-            <button onClick={this.Increment.bind(this)}> {this.props.buttonName},"显示一下:>>>>"+{this.state.childMsg}</button>
+            <button onClick={this.Increment.bind(this)}> {this.props.buttonName},"显示一下~~:>>>>"+{this.state.childMsg}</button>
         )
     }
+}
+HelloComponent.propTypes = {
+    buttonName:PropTypes.string.isRequired
 }
 export default HelloComponent;
